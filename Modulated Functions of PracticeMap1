@@ -1,0 +1,63 @@
+<!-- ------------MAP STYLING HERE ------------->
+<style>
+  #map {
+    height:380px;
+    width:300px;
+  } 
+</style>
+<!-- ------------ INCLUDED THIS _---------->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+  crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+  integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+  crossorigin=""></script>
+<!-- ---------- DIV FOR MAP INSERTION ------------>
+<div id="map"></div>
+<!-- -----------SCRIPT FOR MAP MAKING ------------->
+<script>
+/* ************ MAP OBJECT CREATION  ****************/
+  var map = L.map('map').setView([51.5, -0.09], 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+
+
+
+
+
+/* ************** Modulated SETUP MARKER ******************
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  function addMarker(Coord,Text){
+    L.marker(Coord).addTo(map)
+    .bindPopup(Text)
+    .openPopup
+  }
+addMarker([51.5,-0.09],'text')
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+/* ************* Modulated N SIDED POLYGON ***************
+===========================================================
+function polyMake(ArrayOfCoords){
+  var polygon = L.polygon(ArrayOfCoords).addTo(map);
+}
+var Coords = [[51.509, -0.12],[51.520, -0.14],[51.509, -0.08]]
+polyMake(Coords)
+============================================================ */
+
+/* ******** Modulated Circle CODE *****************
+888888888888888888888888888888888888888888888888888
+  function circleMake(Coord,color){
+    var circle = L.circle(Coord, {
+    color: color,
+    fillColor: color,
+    fillOpacity: 0.5,
+    radius: 500
+  }).addTo(map); 
+  }
+  circleMake([51.509, -0.13],'blue')
+8888888888888888888888888888888888888888888888888*/
+
+
+
+
+</script>
