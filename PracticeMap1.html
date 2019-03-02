@@ -1,0 +1,45 @@
+<!Doctype HTML>
+<html>
+<!-- ------------MAP STYLING HERE ------------->
+<style>
+  #map {
+    height:380px;
+    width:300px;
+  } 
+</style>
+<!-- ------------ INCLUDED THIS _---------->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+  integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA=="
+  crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"
+  integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+  crossorigin=""></script>
+<!-- ---------- DIV FOR MAP INSERTION ------------>
+<div id="map"></div>
+
+<!-- -----------SCRIPT FOR MAP MAKING ------------->
+<script>
+/* ************ MAP OBJECT CREATION  ****************/
+  var map = L.map('map').setView([51.5, -0.09], 13);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+/* ************** SETUP MARKER ******************/
+  L.marker([51.5, -0.09]).addTo(map)
+  .bindPopup('abc')
+  .openPopup();
+/* *************** MAKE CIRCLE OBJ **************/
+  var circle = L.circle([51.508, -0.11], {
+    color: 'red',
+    fillColor: '#f03',
+    fillOpacity: 0.5,
+    radius: 500
+  }).addTo(map);
+/* ************* N SIDED POLYGON ***************/
+  var polygon = L.polygon([
+    [51.509, -0.08],
+    [51.503, -0.06],
+    [51.51, -0.047]
+  ]).addTo(map);
+</script>
+</html>
