@@ -1,0 +1,57 @@
+
+         var watchID;
+         var geoLoc;
+         
+         function showLocation(position) {
+           console.log("hey "+position.timestamp)
+           let pos = {
+             lat: position.coords.latitude,
+             lng: position.coords.longitude
+           }
+           pos = Object.values(pos)
+           console.log(pos)
+           
+           
+           /*****************8 adding code here
+           var map = L.map('map').setView(pos, 12);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+           
+           
+           
+           
+           ***************************************8/
+           
+           
+           
+           
+           
+           console.log(pos.lat +' || '+pos.lng)
+           var latitude = position.coords.latitude;
+           var longitude = position.coords.longitude;
+           alert("Latitude : " + latitude + " Longitude: " + longitude);
+         }
+         
+         function errorHandler(err) {
+            if(err.code == 1) {
+               alert("Error: Access is denied!");
+            } else if( err.code == 2) {
+               alert("Error: Position is unavailable!");
+            }
+         }
+         
+         function getLocationUpdate(){
+            
+            if(navigator.geolocation){
+               
+               // timeout at 5000 milliseconds (5 seconds)
+               var options = {timeout:5000};
+               geoLoc = navigator.geolocation;
+               watchID = geoLoc.watchPosition(showLocation, errorHandler, options);
+            } else {
+               alert("Sorry, browser does not support geolocation!");
+            }
+         }
+    
+    getLocationUpdate()
